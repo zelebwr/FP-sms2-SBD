@@ -1,0 +1,14 @@
+{
+  "name": "database-project",
+  "version": "1.0.0",
+  "description": "Database project",
+  "main": "index.js",
+  "scripts": {
+    "test-db": "node fixed-scripts/test-mysql.js",
+    "setup-db": "node fixed-scripts/setup-db.js"
+  },
+  "dependencies": {
+    "mysql2": "^3.6.5"
+  },
+  "devDependencies": {}
+}
