@@ -1,0 +1,34 @@
+{
+  "name": "database-project",
+  "version": "1.0.0",
+  "description": "Advanced database project with MySQL and Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "node test-connection.js",
+    "mysql": "mysql -u project_user -pproject_pass -D project_db",
+    "backup": "mysqldump -u project_user -pproject_pass project_db > backup.sql",
+    "lint": "eslint *.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "jest": "^30.0.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.1",
+    "eslint": "^8.55.0"
+  },
+  "keywords": ["database", "mysql", "express", "nodejs", "dashboard"],
+  "author": "The Developer",
+  "license": "MIT"
+}
+

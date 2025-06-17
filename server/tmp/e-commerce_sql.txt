@@ -1,0 +1,88 @@
+-- Connect to MySQL and run these commands
+mysql -u root -p
+
+DROP DATABASE IF EXISTS project_db;
+CREATE DATABASE project_db;
+CREATE USER IF NOT EXISTS 'project_user'@'localhost' IDENTIFIED BY 'project_pass';
+GRANT ALL PRIVILEGES ON project_db.* TO 'project_user'@'localhost';
+FLUSH PRIVILEGES;
+USE project_db;
+
+-- Users table (matching your diagram)
+CREATE TABLE users (
+  user_id INT PRIMARY KEY AUTO_INCREMENT,
+  full_name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  role ENUM('admin', 'user') DEFAULT 'user',
+  username VARCHAR(50) UNIQUE NOT NULL,
+  address TEXT,
+  phone_number VARCHAR(20),
+  date_of_birth DATE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Products table (matching your diagram)
+CREATE TABLE products (
+  product_id INT PRIMARY KEY AUTO_INCREMENT,
+  product_name VARCHAR(100) NOT NULL,
+  product_description TEXT,
+  product_price DECIMAL(10,2) NOT NULL,
+  product_stock INT DEFAULT 0,
+  product_category VARCHAR(50),
+  image_url VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Orders table (matching your diagram)
+CREATE TABLE orders (
+  order_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  order_status ENUM('pending', 'processing', 'shipped', 'delivered', 'cancelled') DEFAULT 'pending',
+  payment_method VARCHAR(50),
+  payment_status ENUM('pending', 'paid', 'failed') DEFAULT 'pending',
+  shipment_address TEXT,
+  order_total_price DECIMAL(10,2),
+  FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Order_Items table (matching your diagram)
+CREATE TABLE order_items (
+  order_item_id INT PRIMARY KEY AUTO_INCREMENT,
+  order_id INT NOT NULL,
+  product_id INT NOT NULL,
+  quantity INT NOT NULL,
+  price_at_purchase DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(order_id),
+  FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+-- Insert sample data
+INSERT INTO users (full_name, email, password, username, role, address, phone_number, date_of_birth) VALUES
+('John Administrator', 'admin@example.com', '$2b$10$hashedpassword', 'admin', 'admin', '123 Admin St', '+1234567890', '1990-01-01'),
+('John Doe', 'john@example.com', '$2b$10$hashedpassword', 'johndoe', 'user', '456 User Ave', '+1234567891', '1995-05-15'),
+('Jane Smith', 'jane@example.com', '$2b$10$hashedpassword', 'janesmith', 'user', '789 Customer Blvd', '+1234567892', '1992-08-20'),
+('Bob Wilson', 'bob@example.com', '$2b$10$hashedpassword', 'bobwilson', 'user', '321 Buyer Lane', '+1234567893', '1988-12-10');
+
+INSERT INTO products (product_name, product_description, product_price, product_stock, product_category, image_url) VALUES
+('Gaming Laptop', 'High-performance gaming laptop with RTX 4080', 1899.99, 15, 'Electronics', 'https://example.com/laptop.jpg'),
+('Wireless Mouse', 'Ergonomic wireless gaming mouse', 79.99, 50, 'Electronics', 'https://example.com/mouse.jpg'),
+('Mechanical Keyboard', 'RGB mechanical gaming keyboard', 149.99, 30, 'Electronics', 'https://example.com/keyboard.jpg'),
+('Programming T-Shirt', 'Funny programming quote t-shirt', 24.99, 100, 'Clothing', 'https://example.com/tshirt.jpg'),
+('Coffee Mug', 'Developer fuel coffee mug', 12.99, 75, 'Accessories', 'https://example.com/mug.jpg');
+
+INSERT INTO orders (user_id, order_status, payment_method, payment_status, shipment_address, order_total_price) VALUES
+(2, 'delivered', 'Credit Card', 'paid', '456 User Ave', 1979.98),
+(3, 'shipped', 'PayPal', 'paid', '789 Customer Blvd', 229.98),
+(4, 'processing', 'Credit Card', 'paid', '321 Buyer Lane', 37.98);
+
+INSERT INTO order_items (order_id, product_id, quantity, price_at_purchase) VALUES
+(1, 1, 1, 1899.99),
+(1, 2, 1, 79.99),
+(2, 3, 1, 149.99),
+(2, 2, 1, 79.99),
+(3, 4, 1, 24.99),
+(3, 5, 1, 12.99);
+
+exit

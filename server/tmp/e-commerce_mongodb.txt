@@ -1,0 +1,132 @@
+// Users Collection
+db.users.insertMany([
+  {
+    _id: ObjectId("507f1f77bcf86cd799439011"),
+    username: "admin1",
+    email: "admin@example.com",
+    password: "$2a$10$hashedpassword123", // hashed password
+    role: "admin",
+    profile: {
+      full_name: "Admin User",
+      dob: ISODate("1985-05-15"),
+      address: "123 Admin St, Tech City",
+      phone_number: "+1234567890"
+    },
+    created_at: ISODate("2023-01-01T00:00:00Z"),
+    updated_at: ISODate("2023-01-01T00:00:00Z")
+  },
+  {
+    _id: ObjectId("507f1f77bcf86cd799439012"),
+    username: "customer1",
+    email: "customer@example.com",
+    password: "$2a$10$hashedpassword456", // hashed password
+    role: "customer",
+    profile: {
+      full_name: "John Doe",
+      dob: ISODate("1990-11-20"),
+      address: "456 Customer Ave, Shop Town",
+      phone_number: "+1987654321"
+    },
+    created_at: ISODate("2023-01-15T00:00:00Z"),
+    updated_at: ISODate("2023-02-01T00:00:00Z")
+  }
+]);
+
+// Categories Collection
+db.categories.insertMany([
+  {
+    _id: ObjectId("607f1f77bcf86cd799439021"),
+    name: "Electronics",
+    description: "Electronic devices and gadgets",
+    created_at: ISODate("2023-01-01T00:00:00Z")
+  },
+  {
+    _id: ObjectId("607f1f77bcf86cd799439022"),
+    name: "Clothing",
+    description: "Men's and women's clothing",
+    created_at: ISODate("2023-01-01T00:00:00Z")
+  }
+]);
+
+// Items Collection
+db.items.insertMany([
+  {
+    _id: ObjectId("707f1f77bcf86cd799439031"),
+    name: "Smartphone X",
+    description: "Latest smartphone with advanced features",
+    category_id: ObjectId("607f1f77bcf86cd799439021"),
+    price: 899.99,
+    stock_quantity: 50,
+    image: "smartphone_x.jpg",
+    created_at: ISODate("2023-02-01T00:00:00Z"),
+    updated_at: ISODate("2023-02-01T00:00:00Z")
+  },
+  {
+    _id: ObjectId("707f1f77bcf86cd799439032"),
+    name: "Denim Jeans",
+    description: "Comfortable blue denim jeans",
+    category_id: ObjectId("607f1f77bcf86cd799439022"),
+    price: 49.99,
+    stock_quantity: 100,
+    image: "denim_jeans.jpg",
+    created_at: ISODate("2023-02-01T00:00:00Z"),
+    updated_at: ISODate("2023-02-15T00:00:00Z")
+  }
+]);
+
+// Ratings Collection
+db.ratings.insertMany([
+  {
+    _id: ObjectId("807f1f77bcf86cd799439041"),
+    user_id: ObjectId("507f1f77bcf86cd799439012"),
+    item_id: ObjectId("707f1f77bcf86cd799439031"),
+    rating: 4.5,
+    review: "Great phone but battery could last longer",
+    created_at: ISODate("2023-03-01T00:00:00Z")
+  }
+]);
+
+// Payments Collection
+db.payments.insertMany([
+  {
+    _id: ObjectId("907f1f77bcf86cd799439051"),
+    pay_method: "credit_card",
+    pay_date: ISODate("2023-03-15T10:30:00Z"),
+    pay_status: "completed"
+  }
+]);
+
+// Orders Collection
+db.orders.insertMany([
+  {
+    _id: ObjectId("a07f1f77bcf86cd799439061"),
+    user_id: ObjectId("507f1f77bcf86cd799439012"),
+    items: [
+      {
+        item_id: ObjectId("707f1f77bcf86cd799439031"),
+        quantity: 1,
+        price_per_item: 899.99
+      },
+      {
+        item_id: ObjectId("707f1f77bcf86cd799439032"),
+        quantity: 2,
+        price_per_item: 49.99
+      }
+    ],
+    order_date: ISODate("2023-03-15T10:00:00Z"),
+    order_status: "delivered",
+    address: "456 Customer Ave, Shop Town",
+    pay_id: ObjectId("907f1f77bcf86cd799439051")
+  }
+]);
+
+// Transactions Collection
+db.transactions.insertMany([
+  {
+    _id: ObjectId("b07f1f77bcf86cd799439071"),
+    user_id: ObjectId("507f1f77bcf86cd799439012"),
+    order_id: ObjectId("a07f1f77bcf86cd799439061"),
+    total_price: 999.97, // (1 × 899.99) + (2 × 49.99)
+    created_at: ISODate("2023-03-15T10:35:00Z")
+  }
+]);
