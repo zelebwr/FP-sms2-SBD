@@ -1,0 +1,30 @@
+{
+  "name": "fp-sms2-sbd",
+  "version": "1.0.0",
+  "description": "A brief description of what this project is and what it aims to solve.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "install:server": "npm install --prefix server",
+    "install:client": "npm install --prefix client",
+    "install:all": "npm run install:server && npm run install:client",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "setup:db": "npm run setup:db --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zelebwr/FP-sms2-SBD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zelebwr/FP-sms2-SBD/issues"
+  },
+  "homepage": "https://github.com/zelebwr/FP-sms2-SBD#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
