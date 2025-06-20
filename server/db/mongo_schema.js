@@ -28,7 +28,7 @@ const cartsSchema = {
           description: "must be an array of cart items",
           items: {
             bsonType: "object",
-            required: ["productId", "quantity", "addedAt"],
+            required: ["productId", "quantity", "addedAt", "priceAtAddition"],
             properties: {
               productId: { bsonType: "int", description: "must be an integer matching product_id in MySQL" },
               quantity: { bsonType: "int", minimum: 1, description: "must be a positive integer" },
@@ -38,8 +38,7 @@ const cartsSchema = {
           }
         },
         createdAt: { bsonType: "date", description: "must be a date when the cart was created" },
-        updatedAt: { bsonType: "date", description: "must be a date when the cart was last updated" },
-        couponCode: { bsonType: "string", description: "optional discount coupon applied to cart" }
+        updatedAt: { bsonType: "date", description: "must be a date when the cart was last updated" }
       }
     }
   }
