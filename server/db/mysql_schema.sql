@@ -22,8 +22,8 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE IF NOT EXISTS Products (
 product_id INT AUTO_INCREMENT PRIMARY KEY,
 product_name VARCHAR(100) NOT NULL,
-product_description TEXT,
-product_price DECIMAL(10, 2) NOT NULL,
+product_description VARCHAR(100),
+product_price INT NOT NULL,
 product_stock INT NOT NULL DEFAULT 0,
 product_category VARCHAR(50),
 image_url VARCHAR(255),
