@@ -8,10 +8,10 @@ DROP TABLE IF EXISTS `Products`;
 
 CREATE TABLE IF NOT EXISTS Users (
 user_id INT AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR(50) UNIQUE NOT NULL,
+username VARCHAR(50),
 email VARCHAR(100) UNIQUE NOT NULL,
 password VARCHAR(255) NOT NULL,
-full_name VARCHAR(100),
+full_name VARCHAR(100) UNIQUE NOT NULL,
 address TEXT,
 phone_number VARCHAR(20),
 date_of_birth DATE,
