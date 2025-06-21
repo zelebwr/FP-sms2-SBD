@@ -11,7 +11,10 @@
     "install:client": "npm install --prefix client",
     "install:all": "npm run install:server && npm run install:client",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
-    "setup:db": "npm run setup:db --prefix server"
+    "setup:db": "npm run setup:db --prefix server",
+    "start:server": "npm run start --prefix server",
+    "start:client": "npm run start --prefix client",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\""
   },
   "repository": {
     "type": "git",
