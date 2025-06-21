@@ -19,7 +19,8 @@
     "fp-sms2-sbd": "file:..",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.2",
-    "mysql2": "^3.14.1"
+    "mysql2": "^3.14.1",
+    "sequelize": "^6.37.7"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
