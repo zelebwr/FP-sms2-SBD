@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { register, login, getProfile } = require('../controllers/authController');
-const protect = require('../middleware/authMiddleware');
+const {
+  registerUser,
+  loginUser,
+  getUserProfile,
+} = require('../controllers/authController');
+const { protect } = require('../middleware/authMiddleware');
 
-// POST register a new user
-router.post('/register', register);
-
-// POST login a user
-router.post('/login', login);
-
-// GET user profile
-router.get('/profile', protect, getProfile);
+router.post('/register', registerUser);
+router.post('/login', loginUser);
+// Use the 'protect' middleware to secure this route
+router.get('/profile', protect, getUserProfile);
 
 module.exports = router;

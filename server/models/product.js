@@ -1,26 +1,39 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db_mysql');
 
-// define the product schema (structure)
-const ProductSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Product name is required'],
+const Product = sequelize.define('Product', {
+  product_id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
   },
-  price: {
-    type: Number,
-    required: [true, 'Product price is required'],
+  product_name: {
+    type: DataTypes.STRING(100),
+    allowNull: false,
   },
-  category: {
-    type: String,
-    required: [true, 'Product category is required'],
+  product_description: {
+    type: DataTypes.TEXT,
   },
-  image: {
-    type: String,
-    required: [true, 'Product image URL is required'],
+  product_price: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  product_stock: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
+  },
+  product_category: {
+    type: DataTypes.STRING(50),
+  },
+  image_url: {
+    type: DataTypes.STRING(255),
   },
 }, {
-  timestamps: true, // Adds "createdAt" and "updatedAt" fields
+  tableName: 'Products',
+  timestamps: true,
+  createdAt: 'created_at',
+  updatedAt: false,
 });
 
-const Product = mongoose.model('Product', ProductSchema);
 module.exports = Product;
