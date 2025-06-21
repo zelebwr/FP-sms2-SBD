@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Backend server for the Javva E-commerce project.",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",

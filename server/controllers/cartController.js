@@ -72,6 +72,32 @@ const addItemToCart = async (req, res) => {
     }
 };
 
+const updateCartItemQuantity = async (req, res) => {
+    const { productId } = req.params;
+    const { quantity } = req.body;
+    const userId = req.user.user_id;
+
+    if (quantity <= 0) {
+        return removeItemFromCart(req, res); // If quantity is 0 or less, remove item
+    }
+
+    try {
+        let cart = await Cart.findOne({ userId });
+        if (!cart) return res.status(404).json({ message: "Cart not found" });
+
+        const itemIndex = cart.items.findIndex(p => p.productId == productId);
+        if (itemIndex > -1) {
+            cart.items[itemIndex].quantity = quantity;
+            const updatedCart = await cart.save();
+            res.json(updatedCart);
+        } else {
+            res.status(404).json({ message: "Item not found in cart" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error', error: error.message });
+    }
+};
+
 // @desc    Remove an item from the cart
 // @route   DELETE /api/cart/items/:productId
 // @access  Private
@@ -100,5 +126,6 @@ const removeItemFromCart = async (req, res) => {
 module.exports = {
     getCart,
     addItemToCart,
-    removeItemFromCart
+    removeItemFromCart,
+    updateCartItemQuantity
 };
