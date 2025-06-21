@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db_mysql');
+const sequelize = require('../config/db-mysql');
 const bcrypt = require('bcryptjs');
 
 // define the user schema
