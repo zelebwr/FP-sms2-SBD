@@ -1,7 +1,8 @@
 const User = require('../models/User.js');
 const Product = require('../models/Product.js');
-const Cart = require('../models/Cart.js'); // For stats
-const { Op } = require('sequelize');
+const Order = require('../models/Order.js');
+const Cart = require('../models/Cart.js');
+const sequelize = require('../config/db-mysql');
 
 
 // @desc    Get dashboard statistics
@@ -9,35 +10,11 @@ const { Op } = require('sequelize');
 // @access  Private/Admin
 const getDashboardStats = async (req, res) => {
     try {
-        // MySQL Stats
         const userCount = await User.count();
         const productCount = await Product.count();
-        
-        const productsByCategory = await Product.findAll({
-            attributes: [
-                'product_category',
-                [sequelize.fn('COUNT', sequelize.col('product_id')), 'count']
-            ],
-            group: ['product_category']
-        });
-
-        // MongoDB Stats
+        const orderCount = await Order.count();
         const cartCount = await Cart.countDocuments();
-        // Add more mongo stats here if needed (e.g., ratings, wishlists)
-
-        res.json({
-            users: {
-                total: userCount,
-            },
-            products: {
-                total: productCount,
-                byCategory: productsByCategory
-            },
-            carts: {
-                active: cartCount
-            }
-        });
-
+        res.json({ userCount, productCount, orderCount, cartCount });
     } catch (error) {
         res.status(500).json({ message: "Server Error", error: error.message });
     }
@@ -49,16 +26,10 @@ const getDashboardStats = async (req, res) => {
 const updateUserRole = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.userId);
-
         if (user) {
-            user.role = req.body.role || user.role; // Update role from request body
+            user.role = req.body.role || user.role;
             await user.save();
-            res.json({ message: "User role updated", user: {
-                user_id: user.user_id,
-                full_name: user.full_name,
-                email: user.email,
-                role: user.role
-            }});
+            res.json({ message: "User role updated" });
         } else {
             res.status(404).json({ message: "User not found" });
         }
@@ -67,4 +38,37 @@ const updateUserRole = async (req, res) => {
     }
 };
 
-module.exports = { getDashboardStats, updateUserRole };
+// @desc    Get all orders (for admin)
+// @route   GET /api/admin/orders
+// @access  Private/Admin
+const getOrders = async (req, res) => {
+    try {
+        const orders = await Order.findAll({
+            include: [{ model: User, as: 'customer', attributes: ['full_name', 'email'] }],
+            order: [['order_date', 'DESC']]
+        });
+        res.json(orders);
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error', error: error.message });
+    }
+};
+
+// @desc    Update an order's status
+// @route   PUT /api/admin/orders/:orderId/status
+// @access  Private/Admin
+const updateOrderStatus = async (req, res) => {
+    try {
+        const order = await Order.findByPk(req.params.orderId);
+        if (order) {
+            order.order_status = req.body.status || order.order_status;
+            await order.save();
+            res.json(order);
+        } else {
+            res.status(404).json({ message: 'Order not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error', error: error.message });
+    }
+};
+
+module.exports = { getDashboardStats, updateUserRole, getOrders, updateOrderStatus };

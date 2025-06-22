@@ -10,6 +10,8 @@ const ratingsSchema = {
         userId: { bsonType: "int", description: "must be an integer matching user_id in MySQL" },
         ratingValue: { bsonType: ["double", "int"], minimum: 1, maximum: 5, description: "must be a number between 1-5 and is required" },
         reviewText: { bsonType: "string", description: "must be a string if the field exists" },
+        imageUrl: { bsonType: "string" }, // Optional
+        videoUrl: { bsonType: "string" }, // Optional
         createdAt: { bsonType: "date", description: "must be a date and is required" }
       }
     }

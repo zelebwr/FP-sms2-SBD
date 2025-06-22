@@ -1,21 +1,6 @@
-SET FOREIGN_KEY_CHECKS=0;
-
--- Empty existing tables before seeding
-TRUNCATE TABLE Users;
-TRUNCATE TABLE Products;
-
-SET FOREIGN_KEY_CHECKS=1;
-
-
--- Insert Users (1 admin, 2 customers)
-INSERT INTO Users (user_id, full_name, email, password, role) VALUES
-(1, 'Admin User', 'admin@javva.com', '$2a$10$f/9S5jZ4c.bAnY.1d.t/J.sCM9a3fG5zJzC0p/iQ/QO.p4ySgM8/a', 'admin'),
-(2, 'Jonathan Joestar', 'jojo@example.com', '$2a$10$f/9S5jZ4c.bAnY.1d.t/J.sCM9a3fG5zJzC0p/iQ/QO.p4ySgM8/a', 'customer'),
-(3, 'Dio Brando', 'dio@example.com', '$2a$10$f/9S5jZ4c.bAnY.1d.t/J.sCM9a3fG5zJzC0p/iQ/QO.p4ySgM8/a', 'customer');
-
-
 -- Insert Products (30 items across 4 categories)
 INSERT INTO Products (product_name, product_description, product_price, product_stock, product_category, image_url) VALUES
+
 -- Category: T-Shirts
 ('Javva Classic Logo Tee', 'A classic 100% cotton tee with the Javva brand logo.', 150000, 100, 'T-Shirts', '/images/tshirt-logo.jpg'),
 ('V-Neck Basic Tee', 'A soft, comfortable v-neck for everyday wear.', 175000, 80, 'T-Shirts', '/images/tshirt-vneck.jpg'),
