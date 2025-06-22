@@ -26,6 +26,16 @@ async function setupMySQL() {
     await connection.query(schemaSQL);
     console.log('✅ MySQL database and tables created successfully.');
 
+    // apply seed data if available
+    const seedPath = path.join(__dirname, '../db/mysql_seed.sql');
+    if (fs.existsSync(seedPath)) {
+      const seedSQL = fs.readFileSync(seedPath, 'utf8');
+      await connection.query(seedSQL);
+      console.log('✅ MySQL seed data inserted successfully.');
+    } else {
+      console.log('ℹ️ MySQL seed file not found, skipping.');
+    }
+
   } catch (error) {
     console.error('❌ MySQL setup failed:', error.message);
     throw error; // Re-throw the error to stop the main setup script
