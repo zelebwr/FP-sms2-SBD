@@ -1,5 +1,5 @@
 // In server/scripts/setup-mongodb.js
-require('dotenv').config({ path: '../.env' }); // Load .env from the server directory
+require('dotenv').config(); // Load .env from the server directory
 const { MongoClient } = require('mongodb');
 const { ratingsSchema, cartsSchema, wishlistsSchema } = require('../db/mongo_schema.js');
 const { sampleRatings } = require('../db/mongo_seed.js');
