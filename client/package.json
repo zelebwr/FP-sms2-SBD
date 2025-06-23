@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "fp-sms2-sbd": "file:..",
     "lucide-react": "^0.522.0",
     "next": "15.3.4",
+    "radix-ui": "^1.4.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

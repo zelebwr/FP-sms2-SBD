@@ -36,7 +36,7 @@ export default async function HomePage() {
   const featuredProducts = await getFeaturedProducts();
 
   return (
-    <div className="bg-javva-sand"> {/* Using custom background color */}
+    <div className="bg-[#efe8db]"> {/* Using custom background color */}
       <Navbar />
       <main>
         {/* --- Hero Section --- */}
@@ -67,7 +67,7 @@ export default async function HomePage() {
         </section>
 
         {/* --- Feature Section --- */}
-        <section className="bg-javva-sand py-20 px-6">
+        <section className="bg-[#efe8db] py-20 px-6">
           <div className="container mx-auto text-center">
             <h2 className="text-6xl font-light text-[#2d3250] mb-16">Stay cool & elegant</h2>
             <div className="space-y-20">
@@ -92,7 +92,7 @@ export default async function HomePage() {
         </section>
 
         {/* --- New Arrivals Section (Dynamic) --- */}
-        <section className="bg-javva-sand py-20 px-6">
+        <section className="bg-[#efe8db] py-20 px-6">
             <div className="container mx-auto text-center">
                 <h2 className="text-4xl font-bold text-[#2d3250] mb-12">New Arrivals</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
