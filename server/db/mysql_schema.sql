@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS Products (
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    assigned_admin_id INT, 
+    assigned_admin_id INT NOT NULL, 
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     order_status ENUM('pending', 'delivering', 'delivered', 'cancelled') NOT NULL DEFAULT 'pending',
     shipping_first_name VARCHAR(50) NOT NULL,
