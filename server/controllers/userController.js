@@ -1,8 +1,34 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
-// Update user profile
-exports.updateProfile = async (req, res) => {
+// @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
+const getProfile = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    
+    const user = await User.findByPk(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    
+    // Return user data without password
+    const userData = user.toJSON();
+    delete userData.password;
+    
+    res.status(200).json({ user: userData });
+    
+  } catch (error) {
+    console.error('Get profile error:', error);
+    res.status(500).json({ message: 'Server error fetching profile' });
+  }
+};
+
+// @desc    Update user profile
+// @route   PUT /api/users/profile
+// @access  Private
+const updateProfile = async (req, res) => {
   try {
     const userId = req.user.id; // From auth middleware
     const { name, email, phone, address } = req.body;
@@ -38,30 +64,11 @@ exports.updateProfile = async (req, res) => {
   }
 };
 
-// Get user profile
-exports.getProfile = async (req, res) => {
-  try {
-    const userId = req.user.id;
-    
-    const user = await User.findByPk(userId);
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-    
-    // Return user data without password
-    const userData = user.toJSON();
-    delete userData.password;
-    
-    res.status(200).json({ user: userData });
-    
-  } catch (error) {
-    console.error('Get profile error:', error);
-    res.status(500).json({ message: 'Server error fetching profile' });
-  }
-};
 
-// Update password
-exports.updatePassword = async (req, res) => {
+// @desc    Update user password
+// @route   PUT /api/users/password
+// @access  Private
+const updatePassword = async (req, res) => {
   try {
     const userId = req.user.id;
     const { currentPassword, newPassword } = req.body;
@@ -94,4 +101,11 @@ exports.updatePassword = async (req, res) => {
     console.error('Password update error:', error);
     res.status(500).json({ message: 'Server error updating password' });
   }
+};
+
+// Export all functions as a single module
+module.exports = {
+    getProfile,
+    updateProfile,
+    updatePassword
 };

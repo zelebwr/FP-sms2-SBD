@@ -7,17 +7,6 @@ const connectMongo = require('./config/db-mongodb.js');
 const sequelize = require('./config/db-mysql.js'); // Just importing this initializes it
 require('./models/associations'); // Import associations to ensure they are registered
 
-
-// Update hari ini
-const authRoutes = require('./routes/authRoutes');
-const productRoutes = require('./routes/productRoutes');
-const cartRoutes = require('./routes/cartRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const wishlistRoutes = require('./routes/wishlistRoutes');
-const userRoutes = require('./routes/userRoutes'); // Add this line
-
-
 // Connect to MongoDB
 connectMongo();
 
@@ -28,6 +17,7 @@ const cartRoutes = require('./routes/cartRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const wishlistRoutes = require('./routes/wishlistRoutes');
+const userRoutes = require('./routes/userRoutes'); // Add this line
 
 // Initialize Express app
 const app = express();
