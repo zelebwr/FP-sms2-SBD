@@ -1,24 +1,37 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
+import { cn, generateMetadata } from "@/functions";
+import { inter, satoshi } from "@/constants";
+import { Toaster } from "@/components/ui/sonner";
+import { Providers } from "@/components"; // Komponen ini sudah mengandung ClerkProvider
+import { CartProvider } from "@/context/cart-context"; 
 
-// Configure the Inter font
-const inter = Inter({ 
-    subsets: ["latin"] 
-});
+export const metadata = generateMetadata();
 
-export const metadata: Metadata = {
-  title: "Javva E-Commerce",
-  description: "Modern oriental fashion.",
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body
+                className={cn(
+                    "min-h-screen bg-background text-foreground antialiased font-default overflow-x-hidden !scrollbar-hide",
+                    inter.variable,
+                    satoshi.variable,
+                )}
+            >
+                <Toaster
+                    richColors
+                    theme="dark"
+                    position="top-right"
+                />
+                <Providers>
+                    <CartProvider>
+                        {children}
+                    </CartProvider>
+                </Providers>
+            </body>
+        </html>
+    );
 };
-
-export default function RootLayout({ children, }: 
-  Readonly<{ children: React.ReactNode; }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-      </body>
-    </html>
-  );
-}
