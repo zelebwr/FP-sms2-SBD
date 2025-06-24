@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -28,7 +28,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
-    "fp-sms2-sbd": "file:..",
     "framer-motion": "^12.19.1",
     "hamburger-react": "^2.5.2",
     "input-otp": "^1.4.2",
@@ -53,14 +52,15 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20.19.1",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "eslint": "^9.29.0",
-    "eslint-config-next": "^15.3.4",
-    "postcss": "^8.5.6",
     "prisma": "^6.10.1",
-    "tailwindcss": "^4.1.10",
-    "typescript": "^5.8.3"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5"
   }
 }
