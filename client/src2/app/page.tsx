@@ -158,7 +158,10 @@ export default async function HomePage() {
             <div className="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
               {" "}
               {/* Centered grid */}
-              <Link href="/products/10" className="group col-span-1 row-span-1">
+              <Link
+                href="/products/10"
+                className="group col-span-1 row-span-1"
+                legacyBehavior>
                 <Image
                   src="/sustainable.png"
                   alt="Family wearing batik"
@@ -167,7 +170,10 @@ export default async function HomePage() {
                   className="rounded-lg object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
               </Link>
-              <Link href="/products/11" className="group col-span-1 row-span-1">
+              <Link
+                href="/products/11"
+                className="group col-span-1 row-span-1"
+                legacyBehavior>
                 <Image
                   src="/premiumquality.png"
                   alt="Family gathering"
@@ -179,7 +185,7 @@ export default async function HomePage() {
               <Link
                 href="/products/16"
                 className="group col-span-2 md:col-span-1"
-              >
+                legacyBehavior>
                 <Image
                   src="/sustainable.png"
                   alt="Couple in batik"
@@ -191,7 +197,7 @@ export default async function HomePage() {
               <Link
                 href="/products/17"
                 className="group col-span-2 md:col-span-1"
-              >
+                legacyBehavior>
                 <Image
                   src="/premiumquality.png"
                   alt="Mother and daughter in batik"

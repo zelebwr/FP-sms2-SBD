@@ -59,12 +59,12 @@ const MobileSidebar = () => {
                                                 className: isActive ? "bg-muted text-primary w-full !justify-start" : "text-foreground/70 w-full !justify-start",
                                                 // "w-full !justify-start text-foreground/70"
                                             })}
-                                        >
+                                            legacyBehavior>
                                             <link.icon strokeWidth={2} className="size-[18px] mr-1.5" />
                                             {link.label}
                                         </Link>
                                     </li>
-                                )
+                                );
                             })}
                         </ul>
 
@@ -83,7 +83,7 @@ const MobileSidebar = () => {
                 </SheetContent>
             </Sheet>
         </div>
-    )
+    );
 };
 
 export default MobileSidebar

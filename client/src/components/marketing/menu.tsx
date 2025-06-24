@@ -48,10 +48,8 @@ const Navbar = () => {
                         <NavigationMenuList>
                             {menuItems.map((item) => (
                                 <NavigationMenuItem key={item.href}>
-                                    <Link href={item.href} legacyBehavior passHref>
-                                        <NavigationMenuLink className="h-10 px-4 py-2 text-sm font-medium rounded-md text-white/80 hover:text-white w-max bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">
+                                    <Link href={item.href} className="h-10 px-4 py-2 text-sm font-medium rounded-md text-white/80 hover:text-white w-max bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">
                                             {item.title}
-                                        </NavigationMenuLink>
                                     </Link>
                                 </NavigationMenuItem>
                             ))}

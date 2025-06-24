@@ -17,5 +17,5 @@ export const SectionBadge = ({ title }: Props) => {
                 {title}
             </div>
         </div>
-    )
+    );
 };

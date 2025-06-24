@@ -48,13 +48,15 @@ export const ProductDetailClient = ({ product, relatedProducts }: { product: Pro
                     <div className="text-sm text-gray-500">
                         <Link href="/" className="hover:text-black">Home</Link>
                         <span className="mx-2">&gt;</span>
-                        <Link href={`/products/${product.Category.toLowerCase()}`} className="hover:text-black">{product.Category}</Link>
+                        <Link
+                            href={`/products/${product.Category.toLowerCase()}`}
+                            className="hover:text-black"
+                            legacyBehavior>{product.Category}</Link>
                         <span className="mx-2">&gt;</span>
                         <span className="font-semibold text-black">{product.Name}</span>
                     </div>
                 </div>
             </header>
-
             <div className="bg-[#3F4971] min-h-screen text-white p-8">
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
@@ -163,7 +165,7 @@ export const ProductDetailClient = ({ product, relatedProducts }: { product: Pro
                         ))}
                     </div>
                     <div className="mt-12">
-                        <Link href={`/products/${product.Category.toLowerCase()}`}>
+                        <Link href={`/products/${product.Category.toLowerCase()}`} legacyBehavior>
                             <Button className="bg-black text-white hover:bg-gray-800 px-10 py-6 text-base font-semibold">
                                 Show More
                             </Button>

@@ -34,7 +34,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
             <div className="p-4 text-center">
                 <h3 className="font-semibold text-gray-800">{product.Name}</h3>
                 <p className="mt-1 font-bold text-gray-900">{formatCurrency(product.Price)}</p>
-                <Link href={productUrl}>
+                <Link href={productUrl} legacyBehavior>
                     <Button className="mt-4 w-full bg-gray-800 text-white hover:bg-gray-900">Buy Now</Button>
                 </Link>
             </div>

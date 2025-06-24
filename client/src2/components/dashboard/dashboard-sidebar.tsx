@@ -51,7 +51,7 @@ const DashboardSidebar = () => {
                         ? "bg-muted text-primary w-full !justify-start"
                         : "text-foreground/70 w-full !justify-start",
                     })}
-                  >
+                    legacyBehavior>
                     <link.icon strokeWidth={2} className="size-[18px] mr-1.5" />
                     {link.label}
                   </Link>

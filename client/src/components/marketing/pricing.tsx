@@ -107,7 +107,6 @@ const Plan = ({
 
     return (
         <div key={index} className="w-full relative flex flex-col saturate-150 rounded-2xl">
-
             <div
                 className={cn(
                     "flex flex-col size-full border rounded-2xl relative p-3 [background-image:linear-gradient(345deg,rgba(255,255,255,0.01)_0%,rgba(255,255,255,0.03)_100%)]",
@@ -174,14 +173,14 @@ const Plan = ({
                         className="w-full hover:scale-100 hover:translate-y-0 shadow-none"
                     >
 
-                        <Link href={""}>
+                        <Link href={""} legacyBehavior>
                             {buttonText}
                         </Link>
                     </Button>
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export default Pricing

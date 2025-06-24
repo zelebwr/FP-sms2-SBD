@@ -66,7 +66,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
             <Link
               href="/how-it-works"
               className="flex items-center w-full text-start"
-            >
+              legacyBehavior>
               <UserCog className="w-4 h-4 mr-2" />
               How it works
             </Link>
@@ -84,28 +84,19 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                 className="flex flex-col items-start gap-1 mt-1"
               >
                 <li className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80">
-                  <Link
-                    href="/"
-                    className="flex items-center w-full text-start"
-                  >
+                  <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
                     <Captions className="w-4 h-4 mr-2" />
                     Caption Generation
                   </Link>
                 </li>
                 <li className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80">
-                  <Link
-                    href="/"
-                    className="flex items-center w-full text-start"
-                  >
+                  <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
                     <CalendarClock className="w-4 h-4 mr-2" />
                     Post Scheduling
                   </Link>
                 </li>
                 <li className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80">
-                  <Link
-                    href="/"
-                    className="flex items-center w-full text-start"
-                  >
+                  <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
                     <LineChart className="w-4 h-4 mr-2" />
                     Analytics Dashboard
                   </Link>
@@ -117,7 +108,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
             onClick={() => setIsOpen(false)}
             className="w-full px-4 py-2 text-lg hover:text-muted-foreground font-normal transition transform rounded-md cursor-pointer text-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
           >
-            <Link href="/" className="flex items-center w-full text-start">
+            <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
               <Gem className="w-4 h-4 mr-2" />
               Pricing
             </Link>
@@ -126,7 +117,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
             onClick={() => setIsOpen(false)}
             className="w-full px-4 py-2 text-lg hover:text-muted-foreground font-normal transition transform rounded-md cursor-pointer text-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
           >
-            <Link href="/" className="flex items-center w-full text-start">
+            <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
               <Waypoints className="w-4 h-4 mr-2" />
               Integrations
             </Link>
@@ -144,37 +135,25 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                 className="flex flex-col items-start gap-1 mt-1"
               >
                 <li className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80">
-                  <Link
-                    href="/"
-                    className="flex items-center w-full text-start"
-                  >
+                  <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
                     <Newspaper className="w-4 h-4 mr-2" />
                     Blog
                   </Link>
                 </li>
                 <li className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80">
-                  <Link
-                    href="/"
-                    className="flex items-center w-full text-start"
-                  >
+                  <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
                     <FileText className="w-4 h-4 mr-2" />
                     Case Studies
                   </Link>
                 </li>
                 <li className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80">
-                  <Link
-                    href="/"
-                    className="flex items-center w-full text-start"
-                  >
+                  <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
                     <Box className="w-4 h-4 mr-2" />
                     Tools
                   </Link>
                 </li>
                 <li className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80">
-                  <Link
-                    href="/"
-                    className="flex items-center w-full text-start"
-                  >
+                  <Link href="/" className="flex items-center w-full text-start" legacyBehavior>
                     <CircleHelp className="w-4 h-4 mr-2" />
                     Support
                   </Link>

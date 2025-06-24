@@ -13,10 +13,10 @@ interface Props {
 const Providers = ({ children }: Props) => {
     return (
         // <QueryClientProvider client={client}>
+        // </QueryClientProvider> 
         <ClerkProvider>
             {children}
         </ClerkProvider>
-        // </QueryClientProvider> 
     );
 };
 

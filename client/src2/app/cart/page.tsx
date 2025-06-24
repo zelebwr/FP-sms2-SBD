@@ -122,7 +122,6 @@ export default function CartPage() {
           <h1 className="text-3xl font-bold">Shopping Cart</h1>
         </div>
       </header>
-
       <main className="bg-[#EFE8DB]">
         <div className="container mx-auto px-8 py-12">
           {items.length === 0 ? (
@@ -167,7 +166,7 @@ export default function CartPage() {
                   <Link
                     href="/cart/checkout"
                     className="flex justify-end items-center mt-6 font-semibold text-gray-800 hover:text-black transition-colors"
-                  >
+                    legacyBehavior>
                     Checkout
                     <ArrowRight className="ml-2" size={18} />
                   </Link>

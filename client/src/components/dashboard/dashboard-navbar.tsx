@@ -12,7 +12,7 @@ const DashboardNavbar = () => {
         <header id="dashboard-navbar" className="fixed top-0 inset-x-0 w-full h-16 bg-background/40 backdrop-blur-md border-b border-border/50 px-4 z-50">
             <Container className="flex items-center justify-between size-full">
                 <div className="flex items-center">
-                    <Link href="/app" className="flex items-center gap-x-2">
+                    <Link href="/app" className="flex items-center gap-x-2" legacyBehavior>
                         <Icons.icon className="w-6" />
                         <span className="text-lg font-semibold">
                             Luro
@@ -33,7 +33,7 @@ const DashboardNavbar = () => {
                         variant="ghost"
                         className="hidden lg:flex"
                     >
-                        <Link href="/help" target="_blank">
+                        <Link href="/help" target="_blank" legacyBehavior>
                             <HelpCircleIcon className="size-5" />
                         </Link>
                     </Button>
@@ -41,7 +41,7 @@ const DashboardNavbar = () => {
                 </div>
             </Container>
         </header>
-    )
+    );
 };
 
 export default DashboardNavbar

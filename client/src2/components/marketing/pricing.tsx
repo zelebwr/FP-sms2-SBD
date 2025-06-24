@@ -181,7 +181,7 @@ const Plan = ({
             variant={id === "pro" ? "default" : "tertiary"}
             className="w-full hover:scale-100 hover:translate-y-0 shadow-none"
           >
-            <Link href={""}>{buttonText}</Link>
+            <Link href={""} legacyBehavior>{buttonText}</Link>
           </Button>
         </div>
       </div>

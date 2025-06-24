@@ -78,7 +78,7 @@ const SignInForm = () => {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-[#3a3d5b] via-[#2c2f48] to-[#1a1c2c] p-8 text-white">
       <div className="absolute top-8 left-8">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2" legacyBehavior>
           <Image
             src="/images/Logo-Javva.png"
             alt="Javva Logo"
@@ -87,7 +87,6 @@ const SignInForm = () => {
           />
         </Link>
       </div>
-
       <div className="w-full max-w-sm rounded-2xl bg-slate-900/40 p-8 shadow-2xl backdrop-blur-sm bg-[#181B2F]">
         <div className="mb-8 text-center">
           <h2 className="text-2xl font-light">Login to your account</h2>

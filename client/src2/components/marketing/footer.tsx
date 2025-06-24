@@ -43,13 +43,13 @@ const Footer = () => {
                         </div>
                         
                         <div className="flex items-center space-x-4 my-4">
-                            <Link href="#" aria-label="Twitter">
+                            <Link href="#" aria-label="Twitter" legacyBehavior>
                                 <Icons.twitter className="w-5 h-5 hover:text-white transition-colors" />
                             </Link>
-                            <Link href="#" aria-label="Facebook">
+                            <Link href="#" aria-label="Facebook" legacyBehavior>
                                 <Icons.facebook className="w-5 h-5 hover:text-white transition-colors" />
                             </Link>
-                            <Link href="#" aria-label="Instagram">
+                            <Link href="#" aria-label="Instagram" legacyBehavior>
                                 <Icons.instagram className="w-5 h-5 hover:text-white transition-colors" />
                             </Link>
                         </div>
@@ -66,7 +66,10 @@ const Footer = () => {
                                 <ul className="space-y-3">
                                     {section.links.map((link) => (
                                         <li key={link.name}>
-                                            <Link href={link.href} className="text-sm hover:text-white transition-colors">
+                                            <Link
+                                                href={link.href}
+                                                className="text-sm hover:text-white transition-colors"
+                                                legacyBehavior>
                                                 {link.name}
                                             </Link>
                                         </li>

@@ -36,7 +36,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
         <p className="mt-1 font-bold text-gray-900">
           {formatCurrency(product.Price)}
         </p>
-        <Link href={productUrl}>
+        <Link href={productUrl} legacyBehavior>
           <Button className="mt-4 w-full bg-gray-800 text-white hover:bg-gray-900">
             Buy Now
           </Button>

@@ -36,7 +36,7 @@ const Navbar = () => {
     <nav className="w-full bg-[#2D3450]">
       <div className="container mx-auto flex items-center justify-between h-20 px-4">
         <div className="flex-shrink-0">
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <Image
               src="/images/Logo-Javva.png"
               alt="Logo JAVVA"
@@ -66,7 +66,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-5">
           <Search className="h-6 w-6 text-white cursor-pointer transition-colors hover:text-white/80" />
           <Heart className="h-6 w-6 text-white cursor-pointer transition-colors hover:text-white/80" />
-          <Link href="/cart" aria-label="cart">
+          <Link href="/cart" aria-label="cart" legacyBehavior>
             <ShoppingCart className="h-6 w-6 text-white cursor-pointer transition-colors hover:text-white/80" />
           </Link>
 
@@ -80,7 +80,7 @@ const Navbar = () => {
               <DropdownMenuContent className="mr-4">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <Link href="/profile">
+                <Link href="/profile" legacyBehavior>
                   <DropdownMenuItem className="cursor-pointer">
                     Profile
                   </DropdownMenuItem>
@@ -94,7 +94,7 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Link href="/auth/signin" aria-label="user">
+            <Link href="/auth/signin" aria-label="user" legacyBehavior>
               <User className="h-6 w-6 text-white cursor-pointer transition-colors hover:text-white/80" />
             </Link>
           )}
